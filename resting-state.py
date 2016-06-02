@@ -8,11 +8,11 @@ from psychopy import sound
 # This script simply presents instructions, and sends triggers.
 
 # Parameters for this script
-trialnumber = 4
-trialduration = 60  # in seconds
+trialnumber = 4  # how many trials there will be in total
+trialduration = 60  # how long a trial is
 
 # Triggers - the script will just cycle through these
-triggers = [201, 202]
+triggers = [201, 202]  # i.e. for 2 triggers & 4 trials, pattern will be A B A B
 
 # Set the screen parameters: (This is important!)
 screen = monitors.Monitor('testMonitor')
