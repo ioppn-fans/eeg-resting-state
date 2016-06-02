@@ -15,7 +15,7 @@ trialduration = 60  # in seconds
 triggers = [201, 202]
 
 # Set the screen parameters: (This is important!)
-screen = monitors.Monitor("testMonitor")
+screen = monitors.Monitor('testMonitor')
 screen.setSizePix([1680, 1050])
 screen.setWidth(47.475)
 screen.setDistance(57)
@@ -65,7 +65,7 @@ instruct("When you hear the first tone, please start with your eyes "
          "is ready, and then press [space] to start.")
 
 for seconds in range(5):
-    message.text = ('Starting in ' + str(5 - seconds) + ' seconds.')
+    message.text = ("Starting in " + str(5 - seconds) + " seconds.")
     message.draw()
     win.flip()
     core.wait(1)
@@ -91,4 +91,4 @@ for trials in range(trialnumber):
         # check if experiment was interrupted in last second
         if event.getKeys(keyList='escape'):
             trigger(99)
-            raise KeyboardInterrupt('You interrupted the script manually!')
+            raise KeyboardInterrupt("You interrupted the script manually!")
