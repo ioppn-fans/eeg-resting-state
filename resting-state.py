@@ -44,6 +44,7 @@ def trigger(value=0):
     print(value)
 
 
+# Define a function that takes a string and displays it, then waits to proceed
 def instruct(displaystring):
     message.text = displaystring
     message.draw()
@@ -51,17 +52,17 @@ def instruct(displaystring):
     event.waitKeys(keyList=['space'])
 
 # Give instructions:
-instruct('Please relax for the next 4 minutes. Please alternate between '
-         'keeping your eyes open for a minute and keeping your eyes '
-         'closed for a minute (you can of course blink.) There will be '
-         'a tone notifying you of when you need to switch from having '
-         'your eyes open to closed, or vice versa.\n\n'
-         'Press [space] to continue.')
-instruct('When you hear the first tone, please start with your eyes '
-         'open for one minute. Please try to focus your eyes on the '
-         'fixation cross in the center of the screen. If you have any '
-         'questions, please ask now - if not, check if the experimenter '
-         'is ready, and press [space] to start.')
+instruct("Please relax for the next 4 minutes. Please alternate between "
+         "keeping your eyes open for a minute and keeping your eyes "
+         "closed for a minute (you can of course blink.) There will be "
+         "a tone notifying you of when you need to switch from having "
+         "your eyes open to closed, or vice versa.\n\n"
+         "Press [space] to continue.")
+instruct("When you hear the first tone, please start with your eyes "
+         "open for one minute. Please try to focus your eyes on the "
+         "fixation cross in the center of the screen.\n\nIf you have any "
+         "questions, please ask now - if not, check if the experimenter "
+         "is ready, and then press [space] to start.")
 
 for seconds in range(5):
     message.text = ('Starting in ' + str(5 - seconds) + ' seconds.')
