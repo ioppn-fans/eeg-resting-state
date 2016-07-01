@@ -37,13 +37,16 @@ fixation = visual.GratingStim(win, tex='sqr', mask='cross', sf=0, size=0.3,
 beep = sound.Sound(value=400, secs=0.25)
 beep.setVolume(0.4)
 
+# Open the parallel port (default address(LPT1), all pins low)
 outport = parallel.ParallelPort()
 outport.setData(0)
 
 
 # define a trigger function. change this depending on the system
 def trigger(value=0):
-    # send trigger
+    outport.setData(value)  # set pins high
+    core.wait(0.003)  # wait for acquisition of trigger
+    outport.setData(0)  # set pins low
 
 
 # Define a function that takes a string and displays it, then waits to proceed
