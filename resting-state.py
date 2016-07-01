@@ -12,11 +12,13 @@ trialnumber = 4  # how many trials there will be in total
 trialduration = 60  # how long a trial is
 
 # Triggers - the script will just cycle through these
-triggers = [201, 202]  # i.e. for 2 triggers & 4 trials, pattern will be A B A B
+# i.e. for 2 triggers & 4 trials, pattern will be A B A B
+# make sure trialnumber is a multiple of len(triggers) for balanced design
+triggers = [201, 202]
 
 # Set the screen parameters: (This is important!)
 screen = monitors.Monitor('tobiix300')
-screen.setSizePix([1920, 1080])
+screen.setSizePix([1920, 1080])  # resolution of screen in pixels
 screen.setWidth(51)  # screen width in cm
 screen.setDistance(60)  # distance from screen in cm
 
