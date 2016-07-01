@@ -15,10 +15,10 @@ trialduration = 60  # how long a trial is
 triggers = [201, 202]  # i.e. for 2 triggers & 4 trials, pattern will be A B A B
 
 # Set the screen parameters: (This is important!)
-screen = monitors.Monitor('testMonitor')
-screen.setSizePix([1680, 1050])
-screen.setWidth(47.475)
-screen.setDistance(57)
+screen = monitors.Monitor('tobiix300')
+screen.setSizePix([1920, 1080])
+screen.setWidth(51)  # screen width in cm
+screen.setDistance(60)  # distance from screen in cm
 
 # Open the display window:
 win = visual.Window([500, 500], allowGUI=True, monitor=screen,
