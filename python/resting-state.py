@@ -83,12 +83,12 @@ for trials in range(trialnumber):
         pass
     beep.play()  # announce the next trial
     trigger(triggers[trials % len(triggers)])  # trigger for eeg
-    trialClock.reset()  # reset clock
-    win.flip()  # flip (no real reason)
-    # step through trial duration (except for one second) in 1s chunks
-    for seconds in range(int(trialduration - 1)):
-        core.wait(1)
-        # check if experiment was interrupted in last second
-        if event.getKeys(keyList='escape'):
-            trigger(99)
-            raise KeyboardInterrupt("You interrupted the script manually!")
+    trialClock.reset()  # reset clock for next trial
+    # wait (almost) trial duration, interruptible by esc:
+    if event.waitKeys(keyList='escape', maxWait=trialduration - 2):
+        trigger(99)
+        raise KeyboardInterrupt("You interrupted the script manually!")
+
+# shut everything down neatly
+core.quit()
+win.close()
