@@ -1,6 +1,5 @@
-from psychopy import core, visual, event, monitors, parallel, prefs
+from psychopy import core, visual, event, monitors, parallel
 from psychopy import sound
-# prefs.general['audioLib'] = ['pygame']
 
 
 # Resting State Script
@@ -75,7 +74,7 @@ win.flip()
 
 # Some stuff to keep track of timing
 trialClock = core.Clock()
-trialClock.add(1)  # because we want to have time before the trial starts
+trialClock.add(1)  # because we want to have extra time before the trial starts
 # Go through trials!
 for trials in range(trialnumber):
     # before the trial is supposed to start, wait with high precision
