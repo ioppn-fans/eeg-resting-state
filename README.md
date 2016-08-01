@@ -7,10 +7,10 @@ If you change the design of the study make sure to also update the text you are 
 
 ### Dependencies
 
-For the Matlab version, you need the [Psychtoolbox](www.psychtoolbox.org)
+For the Matlab version, you need the [Psychtoolbox](http://www.psychtoolbox.org)
 
 For python, you need:
 - Python 2.7.x
-- psychopy (`pip install psychopy`), but check the dependencies at [psychopy](psychopy.org)
+- psychopy (`pip install psychopy`), but check the dependencies at [psychopy](http://psychopy.org)
 
 Jan Freyberg (jan.freyberg [at] kcl.ac.uk)
