@@ -24,7 +24,7 @@ screen.setDistance(60)  # distance from screen in cm
 
 # Open the display window:
 win = visual.Window([500, 500], allowGUI=True, monitor=screen,
-                    units='deg', fullscr=False)
+                    units='deg', fullscr=True)
 
 # Make a generic text stimulus for instructions
 message = visual.TextStim(win, units='norm', pos=[0, 0], height=0.07,
@@ -76,17 +76,15 @@ win.flip()
 # Some stuff to keep track of timing
 trialClock = core.Clock()
 trialClock.add(1)  # because we want to have time before the trial starts
-win.callOnFlip(trialClock.reset)
-t = trialClock.getTime()
 # Go through trials!
 for trials in range(trialnumber):
     # before the trial is supposed to start, wait with high precision
     while trialClock.getTime() < trials * trialduration:
         pass
-    # announce the next trial and also flip the screen (no real reason)
-    beep.play()
-    trigger(triggers[trials % len(triggers)])
-    win.flip()
+    beep.play()  # announce the next trial
+    trigger(triggers[trials % len(triggers)])  # trigger for eeg
+    trialClock.reset()  # reset clock
+    win.flip()  # flip (no real reason)
     # step through trial duration (except for one second) in 1s chunks
     for seconds in range(int(trialduration - 1)):
         core.wait(1)
