@@ -1,8 +1,8 @@
-# Python EEG Resting State
-Resting state script for cancan project (100% adaptable)
+# EEG Resting State
+Resting state scripts for many projects.
 
-Resting State Script
+These scripts by default run through 4 trials, and send two triggers alternating (101 and 102). Changes between trials (by default 60 seconds long) are signalled with beeps. You can edit any of the parameters at the top of the script.
 
-Jan Freyberg (jan.freyberg@kcl.ac.uk)
+If you change the design of the study make sure to also update the text you are presenting to the participants as instructions!
 
-This script simply presents instructions, and sends triggers.
+Jan Freyberg (jan.freyberg [at] kcl.ac.uk)
