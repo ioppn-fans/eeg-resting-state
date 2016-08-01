@@ -11,7 +11,6 @@ For the Matlab version, you need the [Psychtoolbox](www.psychtoolbox.org)
 
 For python, you need:
 - Python 2.7.x
-- Psychopy (`pip install psychopy`, but check the dependencies at [psychopy](psychopy.org)
-- 
+- psychopy (`pip install psychopy`), but check the dependencies at [psychopy](psychopy.org)
 
 Jan Freyberg (jan.freyberg [at] kcl.ac.uk)
