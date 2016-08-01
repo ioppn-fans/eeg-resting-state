@@ -5,4 +5,13 @@ These scripts by default run through 4 trials, and send two triggers alternating
 
 If you change the design of the study make sure to also update the text you are presenting to the participants as instructions!
 
+### Dependencies
+
+For the Matlab version, you need the [Psychtoolbox](www.psychtoolbox.org)
+
+For python, you need:
+- Python 2.7.x
+- Psychopy (`pip install psychopy`, but check the dependencies at [psychopy](psychopy.org)
+- 
+
 Jan Freyberg (jan.freyberg [at] kcl.ac.uk)
