@@ -1,3 +1,4 @@
+from psychopy import core, visual, event, monitors, parallel
 from psychopy import sound
 # prefs.general['audioLib'] = ['pygame']
 
