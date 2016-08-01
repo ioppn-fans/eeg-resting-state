@@ -1,4 +1,3 @@
-from psychopy import core, visual, event, monitors, parallel, prefs
 from psychopy import sound
 # prefs.general['audioLib'] = ['pygame']
 
@@ -87,8 +86,8 @@ for trials in range(trialnumber):
     win.flip()  # flip (no real reason)
     # step through trial duration (except for one second) in 1s chunks
     for seconds in range(int(trialduration - 1)):
-        core.wait(1)
-        # check if experiment was interrupted in last second
-        if event.getKeys(keyList='escape'):
+        # Wait one second, and also check for interruption:
+        if event.waitKeys(keyList='escape', maxWait=1):
             trigger(99)
             raise KeyboardInterrupt("You interrupted the script manually!")
+        core.wait(1)
