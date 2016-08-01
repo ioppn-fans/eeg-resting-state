@@ -13,7 +13,7 @@ trialduration = 60  # how long a trial is
 # Triggers - the script will just cycle through these
 # i.e. for 2 triggers & 4 trials, pattern will be A B A B
 # make sure trialnumber is a multiple of len(triggers) for balanced design
-triggers = [201, 202]
+triggers = [101, 102]
 
 # Set the screen parameters: (This is important!)
 screen = monitors.Monitor('tobiix300')
@@ -38,11 +38,16 @@ fixation = visual.GratingStim(win, tex='sqr', mask='cross', sf=0, size=0.3,
 beep = sound.Sound(value=400, secs=0.25)
 beep.setVolume(0.4)
 
+# Open the parallel port (default address(LPT1), all pins low)
+outport = parallel.ParallelPort()
+outport.setData(0)
+
 
 # define a trigger function. change this depending on the system
 def trigger(value=0):
-    # send trigger
-    print(value)
+    outport.setData(value)  # set pins high
+    core.wait(0.003)  # wait for acquisition of trigger
+    outport.setData(0)  # set pins low
 
 
 # Define a function that takes a string and displays it, then waits to proceed
@@ -74,7 +79,7 @@ win.flip()
 
 # Some stuff to keep track of timing
 trialClock = core.Clock()
-trialClock.add(1)  # because we want to have extra time before the trial starts
+trialClock.add(1)  # because we want to have time before the trial starts
 # Go through trials!
 for trials in range(trialnumber):
     # before the trial is supposed to start, wait with high precision
@@ -87,7 +92,3 @@ for trials in range(trialnumber):
     if event.waitKeys(keyList='escape', maxWait=trialduration - 2):
         trigger(99)
         raise KeyboardInterrupt("You interrupted the script manually!")
-
-# shut everything down neatly
-core.quit()
-win.close()
